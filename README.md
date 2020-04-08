@@ -30,4 +30,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
     - Sass for styling
     - No bootstrap or Material UI
     - No lodash or other utility libraries
-    - react-app-polyfill for supporting IE11
+    - react-app-polyfill + "@babel/plugin-transform-arrow-functions" for supporting IE11
