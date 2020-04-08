@@ -1,0 +1,97 @@
+.Login {
+    background: $deep-purple;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border-radius: 2px;
+}
+
+.Tab {
+    background: $electric;
+    align-self: center;
+    margin-top: -5px;
+    border-radius: 1px;
+    padding: 20px 50px;
+    text-align: center;
+
+.bolded-text {
+    font-size: 20px;
+    color: $deep-purple;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Baloo Paaji 2', cursive;
+    }
+}
+
+.user-image {
+    width: 64px;
+    height: 64px;
+    filter: invert(56%) sepia(13%) saturate(587%) hue-rotate(192deg) brightness(94%) contrast(92%);
+    margin: 30px auto;
+    align-self: center;
+}
+
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0px 60px;
+    .regular-text {
+        font-size: 12px;
+        color: $deep-purple;
+        text-transform: uppercase;
+        font-family: 'Baloo Paaji 2', cursive;
+    }
+    .error-text {
+        font-size: 12px;
+        color: $pink-panther;
+        text-transform: uppercase;
+        font-family: 'Baloo Paaji 2', cursive;
+    }
+    .input-container {
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+        background: $purplish-gray;
+        margin: 10px 0px;
+        border-radius: 5;
+        border: 1px solid $purplish-gray;
+        width: 250px;
+        .input {
+            border: none;
+            background: inherit;
+            outline: none;
+            padding-left: 5px;
+            font-size: 16px;
+        }
+        .input, select {
+            color: $light-gray;
+        }
+        .input:focus {
+            color: $light-gray;
+            outline: none;
+            text-align: start;
+        }
+        ::placeholder {
+            color: $light-gray;
+        }
+        .checkbox-container {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+          .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: $electric-dark;
+          }
+    }
+}

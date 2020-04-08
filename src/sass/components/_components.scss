@@ -1,0 +1,75 @@
+.button {
+        display: inline-block;
+        background: $electric;
+        width: 100%;
+        // margin: 40px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 20px 0px;
+        align-self: center;
+        transition: .3s;
+        font-size: 16px;
+        letter-spacing: 2px;
+        font-weight: 900;
+        border-radius: 10px;
+        cursor: pointer;
+        user-select: none;
+        text-transform: uppercase;
+        &:active {
+            transform: scale(0.95);
+        }
+}
+
+.h2 {
+    color: $deep-purple;
+    font-weight:  600;
+    font-family: 'Baloo Paaji 2', cursive;
+    font-size: 20px
+}
+
+.table-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    .table-row-text {
+        font-size: 12px;
+        color: $light-gray;
+        text-transform: uppercase;
+        font-family: 'Baloo Paaji 2', cursive;
+    }
+}
+
+.popup {
+    position: fixed;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    min-height: 200px;
+    background: $electric-dark;
+    text-align: center;
+    transition: 1s;
+    border-radius: 5px;
+    border: 6px solid $pink-panther;
+    z-index: 999;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    &.active {
+        top: 50%;
+    }
+}
+
+.icon-container {
+    border-right: 1px solid $light-gray;
+    padding-right: 5px;
+    padding-top: 2px;
+}
+.icon {
+    width: 18px;
+    height: 18px;
+    filter: invert(56%) sepia(13%) saturate(587%) hue-rotate(192deg) brightness(94%) contrast(92%);
+}

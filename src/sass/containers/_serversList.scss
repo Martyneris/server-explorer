@@ -1,0 +1,31 @@
+.Table-container {
+    background: $deep-purple;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border-radius: 2px;
+    min-width: 50vh;
+    padding: 20px;
+}
+
+.List{
+    font-family:arial;
+    height: 55vh;
+    width: 100%;
+    background: $purplish-gray;
+    margin: 20px auto;
+    border-radius: 2px;
+  }
+
+ul{
+    list-style:none;
+    max-height: 55vh;
+    margin:0;
+    overflow:auto;
+    padding:0;
+    text-indent:10px;
+  }
+
+  li{
+    line-height:25px;
+  }
