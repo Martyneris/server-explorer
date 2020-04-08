@@ -21,7 +21,6 @@ class Login extends React.Component {
     }
     
     render() {
-        // console.log(this.props)
         const { username, password, checked } = this.state
         const { errors } = this.props
 

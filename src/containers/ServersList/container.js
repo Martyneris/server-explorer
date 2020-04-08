@@ -19,13 +19,13 @@ class ServersList extends React.Component {
     }
 
     componentDidMount = async () => {
-        const { getServers } = this.props
-        await getServers()
         const token = localStorage.getItem('token')
-        console.log(this.props)
+        const { getServers } = this.props
+        //get and set the list of servers to redux state
+        await getServers()
         this.setState({
             servers: this.props.servers,
-            noToken: !token && !this.props.auth.token ? true : false
+            noToken: !token && !this.props.auth.token ? true : false /* check if token is present in redux state or local storage. If not - user needs to login again */
         })
     }
 
@@ -39,7 +39,10 @@ class ServersList extends React.Component {
 
         const { servers, distanceSorting } = this.state
 
-        distanceSorting === 'ascending' ? servers.sort((a, b) => { return a.distance - b.distance }) : servers.sort((a, b) => { return b.distance - a.distance })
+        distanceSorting === 'ascending' ?
+            servers.sort((a, b) => { return a.distance - b.distance })
+            :
+            servers.sort((a, b) => { return b.distance - a.distance })
 
         this.setState({
             servers: servers,
@@ -51,7 +54,11 @@ class ServersList extends React.Component {
 
         const { servers, nameSorting } = this.state
 
-        nameSorting === 'ascending' ? servers.sort((a, b) => a.name.localeCompare(b.name)) : servers.sort((a, b) => b.name.localeCompare(a.name))
+        nameSorting === 'ascending' ?
+            servers.sort((a, b) => a.name.localeCompare(b.name))
+            :
+            servers.sort((a, b) => b.name.localeCompare(a.name))
+
         this.setState({
             servers: servers,
             nameSorting: nameSorting === 'ascending' ? 'descending' : 'ascending'
@@ -61,7 +68,6 @@ class ServersList extends React.Component {
     render() {
         const { isLoading, logout, history } = this.props
         const { servers, popupActive, noToken } = this.state
-        console.log(this.state)
 
         return (
             <div className="CenteredContainer">
@@ -70,8 +76,8 @@ class ServersList extends React.Component {
                     :
                     <div className="Table-container">
                         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
-                            <div className="icon-container" style={{ border: 'none', marginBottom: '10px' }} onClick={this.togglePopup}>
-                                <img src={logoutIcon} className="icon" alt="logout"/>
+                            <div className="icon-container" style={{ border: 'none', marginBottom: '10px', cursor: 'pointer' }} onClick={this.togglePopup}>
+                                <img src={logoutIcon} className="icon" alt="logout" />
                             </div>
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -84,7 +90,7 @@ class ServersList extends React.Component {
                                     {servers.length && servers.map((item, i) => {
                                         return (
                                             <li>
-                                                <TableRow name={item.name} distance={item.distance} />
+                                                <TableRow name={item.name} distance={item.distance} key={i}/>
                                             </li>
                                         )
                                     })
@@ -114,4 +120,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { ...actions, logout } )(ServersList)
+export default connect(mapStateToProps, { ...actions, logout })(ServersList)

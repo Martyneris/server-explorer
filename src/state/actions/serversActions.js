@@ -26,12 +26,11 @@ export const getServers = () => {
                 })
             }
         } catch (err) {
-            console.log(err);
             // send errors to state
-            // dispatch({
-            //     type: types.GET_ERRORS,
-            //     payload: err.response.data
-            // })
+            dispatch({
+                type: types.GET_ERRORS,
+                payload: err.response.data
+            })
         } finally {
             dispatch({
                 type: types.SET_LOADING_FLAG,
